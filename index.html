@@ -1,0 +1,922 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahmoud FOUD - Interior Designer | Architectural Visualization (3D)</title>
+  <!-- Include Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Include Fancybox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+  <!-- Performance: Preconnect to CDNs and preload key images -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preload" as="image" href="./background.png">
+  <link rel="preload" as="image" href="./WhatsApp Image 2025-09-28 at 08.54.57_c5deabb2.jpg" fetchpriority="high">
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f4f7;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Header Styles */
+    .main-header {
+      background-color: #2b4c7e;
+      color: #fff;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .main-header .container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo a {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #2b4c7e; /* Ø¨Ù†ÙØ³Ø¬ÙŠ */
+    }
+    
+    /* Hamburger Menu */
+    .menu-icon {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #fff;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background-image: url('./background.png');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 100px 20px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: left;
+      margin-top: 70px;
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .profile-img img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      object-fit: cover;
+    }
+    .hero-text {
+      max-width: 600px;
+    }
+    .hero-text h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero-text p {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .cta-btn {
+      background-color: #2b4c7e; /* Ø¨Ù†ÙØ³Ø¬ÙŠ */
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .cta-btn:hover {
+      background-color: #333;
+      color: #fff;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #2b4c7e;
+        padding: 20px 0;
+        gap: 10px;
+        align-items: center;
+        z-index: 999;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text h1 {
+        font-size: 36px;
+      }
+      .hero-text p {
+        font-size: 20px;
+      }
+      .profile-img img {
+        width: 200px;
+        height: 200px;
+      }
+    }
+    
+/* Ù‚Ø³Ù… Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ */
+.portfolio {
+  padding: 60px 20px;
+  background-color: #f2f4f7;
+  text-align: center;
+}
+.portfolio h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.project-card {
+  background-color: #ffffff;
+  border: 2px solid #2b4c7e;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  height: 300px; /* Ø§Ø±ØªÙØ§Ø¹ Ø«Ø§Ø¨Øª Ù„Ù„Ø¨Ø·Ø§Ù‚Ø§Øª */
+  position: relative; /* Ù„ØªØ­Ø¯ÙŠØ¯ Ù…ÙˆØ¶Ø¹ Ø§Ù„Ø¹Ù†ÙˆØ§Ù† */
+}
+.project-card img {
+  width: 100%;
+  height: 100%; /* Ø§Ù„ØµÙˆØ±Ø© ØªÙ…Ù„Ø£ Ø§Ù„Ø¯ÙŠÙ Ø¨Ø§Ù„ÙƒØ§Ù…Ù„ */
+  object-fit: cover; /* Ø§Ù„Ø­ÙØ§Ø¸ Ø¹Ù„Ù‰ Ù†Ø³Ø¨Ø© Ø§Ù„ØµÙˆØ±Ø© */
+  display: block;
+}
+.project-card h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Ø®Ù„ÙÙŠØ© Ø³ÙˆØ¯Ø§Ø¡ Ø´ÙØ§ÙØ© */
+  color: #fff;
+  margin: 0;
+  padding: 10px;
+  font-size: 18px;
+}
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 1024px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}
+    
+    /* Contact Section */
+    .contact {
+      padding: 40px 20px;
+      text-align: center;
+      background-color: #f2f4f7;
+      color: #333;
+    }
+    .contact h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .social-links a {
+      font-size: 40px;
+      transition: transform 0.3s ease;
+    }
+    .social-links a:hover {
+      transform: scale(1.2);
+    }
+    .facebook { color: #3b5998; }
+    .linkedin { color: #0e76a8; }
+    .whatsapp { color: #25d366; }
+    .behance { color: #1769ff; }
+    
+    /* Footer */
+    .footer {
+      background-color: #2b4c7e;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .footer .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="main-header">
+  <div class="container">
+    <div class="logo">
+      <a href="#">Mahmoud FOUD</a>
+    </div>
+    <nav>
+      <div class="menu-icon" onclick="toggleMenu()">â˜°</div>
+      <ul id="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#projects">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="profile-img">
+      <img src="./WhatsApp Image 2025-09-28 at 08.54.57_c5deabb2.jpg" alt="Mahmoud FOUD" width="250" height="250" decoding="async" fetchpriority="high">
+    </div>
+    <div class="hero-text">
+      <h1>Mahmoud FOUD</h1>
+      <p>Interior Design – Architectural Visualization – 3D. Since 2020</p>
+      <a href="#projects" class="cta-btn">View Portfolio</a>
+    </div>
+  </div>
+</section>
+  
+  <!-- Projects Section -->
+  <section id="projects" class="portfolio">
+      <h2>Projects</h2>
+    <nav class="category-index">
+      <a href="#cat-bathroom">Bathroom</a>
+      <a href="#cat-bedroom">Bedroom</a>
+      <a href="#cat-exterior">Exterior</a>
+      <a href="#cat-kids">Kids</a>
+      <a href="#cat-kitchen">Kitchen</a>
+      <a href="#cat-living">Living</a>
+      <a href="#cat-office">Office</a>
+      <a href="#cat-reception">Reception</a>
+      <a href="#cat-restaurant">Restaurant</a>
+      <a href="#cat-store">Store</a>
+    </nav>
+    <style>
+      .category-index { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:10px auto 30px; max-width:1100px;}
+      .category-index a { background:#f2f4f7; border:1px solid #2b4c7e; color:#333; padding:8px 14px; border-radius:20px; text-decoration:none; font-size:14px; transition:background .2s ease, transform .2s ease;}
+      .category-index a:hover { background:#2b4c7e; transform: translateY(-1px);} .category-index a.active { background:#2b4c7e;}
+      .category-title { color:#ffffff; margin:30px auto 12px; font-size:24px; max-width:1200px; text-align:left; padding:0 20px;}
+      .hidden-cat { display:none !important; }
+    </style>
+
+    <!-- Bathroom -->
+    <h3 class="category-title" id="cat-bathroom">Bathroom</h3>
+    <div class="projects-container">
+      <div class="project-card">
+        <a href="./images/Bathroom/bathroom (2)/bathroom2 (1).png" data-fancybox="Bathroom-project1" data-caption="<p>Bathroom Project 1</p>">
+          <img src="./images/Bathroom/bathroom (2)/bathroom2 (1).png" alt="Bathroom Project1 thumbnail">
+        </a>
+        <h3>Bathroom - Project 1</h3>
+        <a href="./images/Bathroom/bathroom (2)/bathroom2 (2).png" data-fancybox="Bathroom-project1" data-caption="<p>Bathroom Project 1</p>"></a>
+        <a href="./images/Bathroom/bathroom (2)/bathroom2 (3).png" data-fancybox="Bathroom-project1" data-caption="<p>Bathroom Project 1</p>"></a>
+        <a href="./images/Bathroom/bathroom (2)/bathroom2 (4).png" data-fancybox="Bathroom-project1" data-caption="<p>Bathroom Project 1</p>"></a>
+      </div>
+      <div class="project-card">
+        <a href="./images/Bathroom/bathroom/bathroom1 (1).png" data-fancybox="Bathroom-project2" data-caption="<p>Bathroom Project 2</p>">
+          <img src="./images/Bathroom/bathroom/bathroom1 (1).png" alt="Bathroom Project2 thumbnail">
+        </a>
+        <h3>Bathroom - Project 2</h3>
+        <a href="./images/Bathroom/bathroom/bathroom1 (2).png" data-fancybox="Bathroom-project2" data-caption="<p>Bathroom Project 2</p>"></a>
+        <a href="./images/Bathroom/bathroom/bathroom1 (3).png" data-fancybox="Bathroom-project2" data-caption="<p>Bathroom Project 2</p>"></a>
+        <a href="./images/Bathroom/bathroom/bathroom1 (4).png" data-fancybox="Bathroom-project2" data-caption="<p>Bathroom Project 2</p>"></a>
+        <a href="./images/Bathroom/bathroom/bathroom1 (5).png" data-fancybox="Bathroom-project2" data-caption="<p>Bathroom Project 2</p>"></a>
+        <a href="./images/Bathroom/bathroom/bathroom1 (6).png" data-fancybox="Bathroom-project2" data-caption="<p>Bathroom Project 2</p>"></a>
+      </div>
+    
+    </div>
+
+    <!-- Bedroom -->
+    <h3 class="category-title" id="cat-bedroom">Bedroom</h3>
+    <div class="projects-container">
+      <div class="project-card">
+        <a href="./images/bedroom/bedroom (2)/bedroom2 (1).png" data-fancybox="Bedroom-project1" data-caption="<p>Bedroom Project 1</p>">
+          <img src="./images/bedroom/bedroom (2)/bedroom2 (1).png" alt="Bedroom Project1 thumbnail">
+        </a>
+        <h3>Bedroom - Project 1</h3>
+        <a href="./images/Bedroom/bedroom (2)/bedroom2 (2).png" data-fancybox="Bedroom-project1" data-caption="<p>Bedroom Project 1</p>"></a>
+        <a href="./images/Bedroom/bedroom (2)/bedroom2 (3).png" data-fancybox="Bedroom-project1" data-caption="<p>Bedroom Project 1</p>"></a>
+        <a href="./images/Bedroom/bedroom (2)/bedroom2 (4).png" data-fancybox="Bedroom-project1" data-caption="<p>Bedroom Project 1</p>"></a>
+        <a href="./images/Bedroom/bedroom (2)/bedroom2 (5).png" data-fancybox="Bedroom-project1" data-caption="<p>Bedroom Project 1</p>"></a>
+        <a href="./images/Bedroom/bedroom (2)/bedroom2 (6).png" data-fancybox="Bedroom-project1" data-caption="<p>Bedroom Project 1</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Bedroom/bedroom (3)/bedroom3 (1).png" data-fancybox="Bedroom-project2" data-caption="<p>Bedroom Project 2</p>">
+          <img src="./images/Bedroom/bedroom (3)/bedroom3 (1).png" alt="Bedroom Project2 thumbnail">
+        </a>
+        <h3>Bedroom - Project 2</h3>
+        <a href="./images/bedroom/bedroom (3)/bedroom3 (10).png" data-fancybox="Bedroom-project2" data-caption="<p>Bedroom Project 2</p>"></a>
+        <a href="./images/Bedroom/bedroom (3)/bedroom3 (2).png" data-fancybox="Bedroom-project2" data-caption="<p>Bedroom Project 2</p>"></a>
+        <a href="./images/Bedroom/bedroom (3)/bedroom3 (3).png" data-fancybox="Bedroom-project2" data-caption="<p>Bedroom Project 2</p>"></a>
+        <a href="./images/Bedroom/bedroom (3)/bedroom3 (4).png" data-fancybox="Bedroom-project2" data-caption="<p>Bedroom Project 2</p>"></a>
+        <a href="./images/bedroom/bedroom (3)/bedroom3 (5).png" data-fancybox="Bedroom-project2" data-caption="<p>Bedroom Project 2</p>"></a>
+        <a href="./images/Bedroom/bedroom (3)/bedroom3 (6).png" data-fancybox="Bedroom-project2" data-caption="<p>Bedroom Project 2</p>"></a>
+        <a href="./images/Bedroom/bedroom (3)/bedroom3 (7).png" data-fancybox="Bedroom-project2" data-caption="<p>Bedroom Project 2</p>"></a>
+        <a href="./images/Bedroom/bedroom (3)/bedroom3 (8).png" data-fancybox="Bedroom-project2" data-caption="<p>Bedroom Project 2</p>"></a>
+        <a href="./images/Bedroom/bedroom (3)/bedroom3 (9).png" data-fancybox="Bedroom-project2" data-caption="<p>Bedroom Project 2</p>"></a>
+      </div>
+
+
+
+      <div class="project-card">
+        <a href="./images/Bedroom/bedroom (4)/bedroom4 (1).png" data-fancybox="Bedroom-project3" data-caption="<p>Bedroom Project 3</p>">
+          <img src="./images/Bedroom/bedroom (4)/bedroom4 (1).png" alt="Bedroom Project3 thumbnail">
+        </a>
+        <h3>Bedroom - Project 3</h3>
+        <a href="./images/Bedroom/bedroom (4)/bedroom4 (2).png" data-fancybox="Bedroom-project3" data-caption="<p>Bedroom Project 3</p>"></a>
+        <a href="./images/Bedroom/bedroom (4)/bedroom4 (3).png" data-fancybox="Bedroom-project3" data-caption="<p>Bedroom Project 3</p>"></a>
+        <a href="./images/Bedroom/bedroom (4)/bedroom4 (4).png" data-fancybox="Bedroom-project3" data-caption="<p>Bedroom Project 3</p>"></a>
+        <a href="./images/bedroom/bedroom (4)/bedroom4 (5).png" data-fancybox="Bedroom-project3" data-caption="<p>Bedroom Project 3</p>"></a>
+        <a href="./images/Bedroom/bedroom (4)/bedroom4 (6).png" data-fancybox="Bedroom-project3" data-caption="<p>Bedroom Project 3</p>"></a>
+        <a href="./images/Bedroom/bedroom (4)/bedroom4 (7).png" data-fancybox="Bedroom-project3" data-caption="<p>Bedroom Project 3</p>"></a>
+        <a href="./images/Bedroom/bedroom (4)/bedroom4 (8).png" data-fancybox="Bedroom-project3" data-caption="<p>Bedroom Project 3</p>"></a>
+
+      </div>
+
+
+
+      <div class="project-card">
+        <a href="./images/Bedroom/bedroom (5)/bedroom5 (1).png" data-fancybox="Bedroom-project4" data-caption="<p>Bedroom Project 4</p>">
+          <img src="./images/Bedroom/bedroom (5)/bedroom5 (1).png" alt="Bedroom Project4 thumbnail">
+        </a>
+        <h3>Bedroom - Project 4</h3>
+        <a href="./images/Bedroom/bedroom (5)/bedroom5 (2).png" data-fancybox="Bedroom-project4" data-caption="<p>Bedroom Project 4</p>"></a>
+        <a href="./images/Bedroom/bedroom (5)/bedroom5 (3).png" data-fancybox="Bedroom-project4" data-caption="<p>Bedroom Project 4</p>"></a>
+        <a href="./images/Bedroom/bedroom (5)/bedroom5 (4).png" data-fancybox="Bedroom-project4" data-caption="<p>Bedroom Project 4</p>"></a>
+        <a href="./images/bedroom/bedroom (5)/bedroom5 (5).png" data-fancybox="Bedroom-project4" data-caption="<p>Bedroom Project 4</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Bedroom/bedroom (6)/bedroom6 (1).png" data-fancybox="Bedroom-project5" data-caption="<p>Bedroom Project 5</p>">
+          <img src="./images/Bedroom/bedroom (6)/bedroom6 (1).png" alt="Bedroom Project5 thumbnail">
+        </a>
+        <h3>Bedroom - Project 5</h3>
+        <a href="./images/Bedroom/bedroom (6)/bedroom6 (2).png" data-fancybox="Bedroom-project5" data-caption="<p>Bedroom Project 5</p>"></a>
+        <a href="./images/Bedroom/bedroom (6)/bedroom6 (3).png" data-fancybox="Bedroom-project5" data-caption="<p>Bedroom Project 5</p>"></a>
+        <a href="./images/Bedroom/bedroom (6)/bedroom6 (4).png" data-fancybox="Bedroom-project5" data-caption="<p>Bedroom Project 5</p>"></a>
+        <a href="./images/Bedroom/bedroom (6)/bedroom6 (5).png" data-fancybox="Bedroom-project5" data-caption="<p>Bedroom Project 5</p>"></a>
+        <a href="./images/Bedroom/bedroom (6)/bedroom6 (6).png" data-fancybox="Bedroom-project5" data-caption="<p>Bedroom Project 5</p>"></a>
+      </div>
+
+
+        <div class="project-card">
+        <a href="./images/Bedroom/bedroom/bedroom1 (1).png" data-fancybox="Bedroom-project5" data-caption="<p>Bedroom Project 6</p>">
+          <img src="./images/Bedroom/bedroom/bedroom1 (1).png" alt="Bedroom Project6 thumbnail">
+        </a>
+        <h3>Bedroom - Project 5</h3>
+        <a href="./images/Bedroom/bedroom/bedroom1 (2).png" data-fancybox="Bedroom-project6" data-caption="<p>Bedroom Project 6</p>"></a>
+        <a href="./images/Bedroom/bedroom/bedroom6 (3).png" data-fancybox="Bedroom-project6" data-caption="<p>Bedroom Project 6</p>"></a>
+        <a href="./images/Bedroom/bedroom/bedroom6 (4).png" data-fancybox="Bedroom-project6" data-caption="<p>Bedroom Project 6</p>"></a>
+        <a href="./images/Bedroom/bedroom/bedroom6 (5).png" data-fancybox="Bedroom-project6" data-caption="<p>Bedroom Project 6</p>"></a>
+        <a href="./images/Bedroom/bedroom/bedroom6 (6).png" data-fancybox="Bedroom-project6" data-caption="<p>Bedroom Project 6</p>"></a>
+      </div>
+
+
+    </div>
+
+    <!-- Exterior -->
+    <h3 class="category-title" id="cat-exterior">Exterior</h3>
+    <div class="projects-container">
+      <div class="project-card">
+        <a href="./images/Exterior/Project1/extirer1 (1).png" data-fancybox="Exterior-project1" data-caption="<p>Exterior Project 1</p>">
+          <img src="./images/Exterior/Project1/extirer1 (1).png" alt="Exterior Project1 thumbnail">
+        </a>
+        <h3>Exterior - Project 1</h3>
+        <a href="./images/Exterior/Project1/extirer1 (2).png" data-fancybox="Exterior-project1" data-caption="<p>Exterior Project 1</p>"></a>
+        <a href="./images/Exterior/Project1/extirer1 (3).png" data-fancybox="Exterior-project1" data-caption="<p>Exterior Project 1</p>"></a>
+      </div>
+      <div class="project-card">
+        <a href="./images/Exterior/Project2/extirer2 (1).png" data-fancybox="Exterior-project2" data-caption="<p>Exterior Project 2</p>">
+          <img src="./images/Exterior/Project2/extirer2 (1).png" alt="Exterior Project2 thumbnail">
+        </a>
+        <h3>Exterior - Project 2</h3>
+        <a href="./images/Exterior/Project2/extirer2 (2).png" data-fancybox="Exterior-project2" data-caption="<p>Exterior Project 2</p>"></a>
+      </div>
+    </div>
+
+    <!-- Kids -->
+    <h3 class="category-title" id="cat-kids">Kids</h3>
+    <div class="projects-container">
+      <div class="project-card">
+        <a href="./images/Kids/kids (2)/kids2 (1).png" data-fancybox="Kids-project1" data-caption="<p>Kids Project 1</p>">
+          <img src="./images/Kids/kids (2)/kids2 (1).png" alt="Kids Project1 thumbnail">
+        </a>
+        <h3>Kids - Project 1</h3>
+        <a href="./images/Kids/kids (2)/kids2 (2).png" data-fancybox="Kids-project1" data-caption="<p>Kids Project 1</p>"></a>
+        <a href="./images/Kids/kids (2)/kids2 (3).png" data-fancybox="Kids-project1" data-caption="<p>Kids Project 1</p>"></a>
+      </div>   
+
+
+      <div class="project-card">
+        <a href="./images/Kids/kids (3)/kids3 (1).png" data-fancybox="Kids-project2" data-caption="<p>Kids Project 2</p>">
+          <img src="./images/Kids/kids (3)/kids3 (1).png" alt="Kids Project2 thumbnail">
+        </a>
+        <h3>Kids - Project 2</h3>
+        <a href="./images/Kids/kids (3)/kids3 (2).png" data-fancybox="Kids-project2" data-caption="<p>Kids Project 2</p>"></a>
+        <a href="./images/Kids/kids (3)/kids3 (3).png" data-fancybox="Kids-project2" data-caption="<p>Kids Project 2</p>"></a>
+        <a href="./images/Kids/kids (3)/kids3 (4).png" data-fancybox="Kids-project2" data-caption="<p>Kids Project 2</p>"></a>
+        <a href="./images/Kids/kids (3)/kids3 (5).png" data-fancybox="Kids-project2" data-caption="<p>Kids Project 2</p>"></a>
+        <a href="./images/Kids/kids (3)/kids3 (6).png" data-fancybox="Kids-project2" data-caption="<p>Kids Project 2</p>"></a>
+      </div>
+
+
+
+      <div class="project-card">
+        <a href="./images/kids/kids (4)/kids4 (1).png" data-fancybox="Kids-project3" data-caption="<p>Kids Project 3</p>">
+          <img src="./images/Kids/kids (4)/kids4 (1).png" alt="Kids Project3 thumbnail">
+        </a>
+        <h3>Kids - Project 3</h3>
+        <a href="./images/Kids/kids (4)/kids4 (2).png" data-fancybox="Kids-project3" data-caption="<p>Kids Project 3</p>"></a>
+        <a href="./images/Kids/kids (4)/kids4 (3).png" data-fancybox="Kids-project3" data-caption="<p>Kids Project 3</p>"></a>
+        <a href="./images/Kids/kids (4)/kids4 (4).png" data-fancybox="Kids-project3" data-caption="<p>Kids Project 3</p>"></a>
+        <a href="./images/Kids/kids (4)/kids4 (5).png" data-fancybox="Kids-project3" data-caption="<p>Kids Project 3</p>"></a>
+        <a href="./images/Kids/kids (4)/kids4 (6).png" data-fancybox="Kids-project3" data-caption="<p>Kids Project 3</p>"></a>
+        <a href="./images/Kids/kids (4)/kids4 (7).png" data-fancybox="Kids-project3" data-caption="<p>Kids Project 3</p>"></a>
+        <a href="./images/Kids/kids (4)/kids4 (8).png" data-fancybox="Kids-project3" data-caption="<p>Kids Project 3</p>"></a>
+        <a href="./images/Kids/kids (4)/kids4 (9).png" data-fancybox="Kids-project3" data-caption="<p>Kids Project 3</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Kids/kids/kids1 (1).png" data-fancybox="Kids-project4" data-caption="<p>Kids Project 4</p>">
+          <img src="./images/Kids/kids/kids1 (1).png" alt="Kids Project4 thumbnail">
+        </a>
+        <h3>Kids - Project 4</h3>
+        <a href="./images/kids/kids/kids1 (2).png" data-fancybox="Kids-project4" data-caption="<p>Kids Project 4</p>"></a>
+        <a href="./images/Kids/kids/kids1 (3).png" data-fancybox="Kids-project4" data-caption="<p>Kids Project 4</p>"></a>
+        <a href="./images/Kids/kids/kids1 (4).png" data-fancybox="Kids-project4" data-caption="<p>Kids Project 4</p>"></a>
+        <a href="./images/Kids/kids/kids1 (5).png" data-fancybox="Kids-project4" data-caption="<p>Kids Project 4</p>"></a>
+      </div>
+    </div>
+
+
+
+    <!-- Kitchen -->
+    <h3 class="category-title" id="cat-kitchen">Kitchen</h3>
+    <div class="projects-container">
+      <div class="project-card">
+        <a href="./images/kitchen/kitchen (2)/kitchen (1).png" data-fancybox="Kitchen-project1" data-caption="<p>Kitchen Project 1</p>">
+          <img src="./images/Kitchen/kitchen (2)/kitchen (1).png" alt="Kitchen Project1 thumbnail">
+        </a>
+        <h3>Kitchen - Project 1</h3>
+        <a href="./images/Kitchen/kitchen (2)/kitchen (2).png" data-fancybox="Kitchen-project1" data-caption="<p>Kitchen Project 1</p>"></a>
+        <a href="./images/Kitchen/kitchen (2)/kitchen (3).png" data-fancybox="Kitchen-project1" data-caption="<p>Kitchen Project 1</p>"></a>
+        <a href="./images/Kitchen/kitchen (2)/kitchen (4).png" data-fancybox="Kitchen-project1" data-caption="<p>Kitchen Project 1</p>"></a>
+        <a href="./images/Kitchen/kitchen (2)/kitchen (5).png" data-fancybox="Kitchen-project1" data-caption="<p>Kitchen Project 1</p>"></a>
+        <a href="./images/Kitchen/kitchen (2)/kitchen (6).png" data-fancybox="Kitchen-project1" data-caption="<p>Kitchen Project 1</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Kitchen/kitchen (3)/kitchen3 (1).png" data-fancybox="Kitchen-project2" data-caption="<p>Kitchen Project 2</p>">
+          <img src="./images/Kitchen/kitchen (3)/kitchen3 (1).png" alt="Kitchen Project2 thumbnail">
+        </a>
+        <h3>Kitchen - Project 2</h3>
+        <a href="./images/Kitchen/kitchen (3)/kitchen3 (2).png" data-fancybox="Kitchen-project2" data-caption="<p>Kitchen Project 2</p>"></a>
+        <a href="./images/Kitchen/kitchen (3)/kitchen3 (3).png" data-fancybox="Kitchen-project2" data-caption="<p>Kitchen Project 2</p>"></a>
+        <a href="./images/Kitchen/kitchen (3)/kitchen3 (4).png" data-fancybox="Kitchen-project2" data-caption="<p>Kitchen Project 2</p>"></a>
+        <a href="./images/Kitchen/kitchen (3)/kitchen3 (5).png" data-fancybox="Kitchen-project2" data-caption="<p>Kitchen Project 2</p>"></a>
+        <a href="./images/Kitchen/kitchen (3)/kitchen3 (6).png" data-fancybox="Kitchen-project2" data-caption="<p>Kitchen Project 2</p>"></a>
+      </div>
+
+
+
+      <div class="project-card">
+        <a href="./images/Kitchen/kitchen (4)/kitchen4 (1).png" data-fancybox="Kitchen-project3" data-caption="<p>Kitchen Project 3</p>">
+          <img src="./images/Kitchen/kitchen (4)/kitchen4 (1).png" alt="Kitchen Project3 thumbnail">
+        </a>
+        <h3>Kitchen - Project 3</h3>
+        <a href="./images/Kitchen/kitchen (4)/kitchen4 (2).png" data-fancybox="Kitchen-project3" data-caption="<p>Kitchen Project 3</p>"></a>
+        <a href="./images/Kitchen/kitchen (4)/kitchen4 (3).png" data-fancybox="Kitchen-project3" data-caption="<p>Kitchen Project 3</p>"></a>
+        <a href="./images/Kitchen/kitchen (4)/kitchen4 (4).png" data-fancybox="Kitchen-project3" data-caption="<p>Kitchen Project 3</p>"></a>
+        <a href="./images/Kitchen/kitchen (4)/kitchen4 (5).png" data-fancybox="Kitchen-project3" data-caption="<p>Kitchen Project 3</p>"></a>
+        <a href="./images/Kitchen/kitchen (4)/kitchen4 (6).png" data-fancybox="Kitchen-project3" data-caption="<p>Kitchen Project 3</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Kitchen/kitchen (5)/kitchen5 (1).png" data-fancybox="Kitchen-project4" data-caption="<p>Kitchen Project 4</p>">
+          <img src="./images/Kitchen/kitchen (5)/kitchen5 (1).png" alt="Kitchen Project4 thumbnail">
+        </a>
+        <h3>Kitchen - Project 4</h3>
+        <a href="./images/Kitchen/kitchen (5)/kitchen5 (2).png" data-fancybox="Kitchen-project4" data-caption="<p>Kitchen Project 4</p>"></a>
+        <a href="./images/kitchen/kitchen (5)/kitchen5 (3).png" data-fancybox="Kitchen-project4" data-caption="<p>Kitchen Project 4</p>"></a>
+        <a href="./images/Kitchen/kitchen (5)/kitchen5 (4).png" data-fancybox="Kitchen-project4" data-caption="<p>Kitchen Project 4</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/kitchen/kitchen (6)/kitchen6 (1).png" data-fancybox="Kitchen-project5" data-caption="<p>Kitchen Project 5</p>">
+          <img src="./images/Kitchen/kitchen (6)/kitchen6 (1).png" alt="Kitchen Project5 thumbnail">
+        </a>
+        <h3>Kitchen - Project 5</h3>
+        <a href="./images/Kitchen/kitchen (6)/kitchen6 (2).png" data-fancybox="Kitchen-project5" data-caption="<p>Kitchen Project 5</p>"></a>
+        <a href="./images/Kitchen/kitchen (6)/kitchen6 (3).png" data-fancybox="Kitchen-project5" data-caption="<p>Kitchen Project 5</p>"></a>
+        <a href="./images/Kitchen/kitchen (6)/kitchen6 (4).png" data-fancybox="Kitchen-project5" data-caption="<p>Kitchen Project 5</p>"></a>
+        <a href="./images/Kitchen/kitchen (6)/kitchen6 (5).png" data-fancybox="Kitchen-project5" data-caption="<p>Kitchen Project 5</p>"></a>
+      </div>
+
+ <div class="project-card">
+        <a href="./images/kitchen/kitchen/kitchen1 (1).png" data-fancybox="Kitchen-project5" data-caption="<p>Kitchen Project 5</p>">
+          <img src="./images/Kitchen/kitchen/kitchen1 (1).png" alt="Kitchen Project5 thumbnail">
+        </a>
+        <h3>Kitchen - Project 5</h3>
+        <a href="./images/Kitchen/kitchen/kitchen1 (2).png" data-fancybox="Kitchen-project5" data-caption="<p>Kitchen Project 5</p>"></a>
+        <a href="./images/Kitchen/kitchen/kitchen1 (3).png" data-fancybox="Kitchen-project5" data-caption="<p>Kitchen Project 5</p>"></a>
+        <a href="./images/Kitchen/kitchen/kitchen1 (4).png" data-fancybox="Kitchen-project5" data-caption="<p>Kitchen Project 5</p>"></a>
+      </div>
+
+    </div>
+
+    <!-- Living -->
+    <h3 class="category-title" id="cat-living">Living</h3>
+    <div class="projects-container">
+      <div class="project-card">
+        <a href="./images/Living/living (2)/living2 (1).png" data-fancybox="Living-project1" data-caption="<p>Living Project 1</p>">
+          <img src="./images/Living/living (2)/living2 (1).png" alt="Living Project1 thumbnail">
+        </a>
+        <h3>Living - Project 1</h3>
+        <a href="./images/Living/living (2)/living2 (2).png" data-fancybox="Living-project1" data-caption="<p>Living Project 1</p>"></a>
+        <a href="./images/Living/living (2)/living2 (3).png" data-fancybox="Living-project1" data-caption="<p>Living Project 1</p>"></a>
+        <a href="./images/Living/living (2)/living2 (4).png" data-fancybox="Living-project1" data-caption="<p>Living Project 1</p>"></a>
+        <a href="./images/Living/living (2)/living2 (5).png" data-fancybox="Living-project1" data-caption="<p>Living Project 1</p>"></a>
+      </div>
+
+
+
+      <div class="project-card">
+        <a href="./images/Living/living (3)/living3 (1).png" data-fancybox="Living-project2" data-caption="<p>Living Project 2</p>">
+          <img src="./images/Living/living (3)/living3 (1).png" alt="Living Project2 thumbnail">
+        </a>
+        <h3>Living - Project 2</h3>
+        <a href="./images/Living/living (3)/living3 (2).png" data-fancybox="Living-project2" data-caption="<p>Living Project 2</p>"></a>
+        <a href="./images/Living/living (3)/living3 (3).png" data-fancybox="Living-project2" data-caption="<p>Living Project 2</p>"></a>
+        <a href="./images/Living/living (3)/living3 (4).png" data-fancybox="Living-project2" data-caption="<p>Living Project 2</p>"></a>
+        <a href="./images/Living/living (3)/living3 (5).png" data-fancybox="Living-project2" data-caption="<p>Living Project 2</p>"></a>
+        <a href="./images/Living/living (3)/living3 (6).png" data-fancybox="Living-project2" data-caption="<p>Living Project 2</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Living/living (4)/living4 (1).png" data-fancybox="Living-project3" data-caption="<p>Living Project 3</p>">
+          <img src="./images/Living/living (4)/living4 (1).png" alt="Living Project3 thumbnail">
+        </a>
+        <h3>Living - Project 3</h3>
+        <a href="./images/Living/living (4)/living4 (2).png" data-fancybox="Living-project3" data-caption="<p>Living Project 3</p>"></a>
+        <a href="./images/Living/living (4)/living4 (3).png" data-fancybox="Living-project3" data-caption="<p>Living Project 3</p>"></a>
+        <a href="./images/Living/living (4)/living4 (4).png" data-fancybox="Living-project3" data-caption="<p>Living Project 3</p>"></a>
+        <a href="./images/Living/living (4)/living4 (5).png" data-fancybox="Living-project3" data-caption="<p>Living Project 3</p>"></a>
+        <a href="./images/Living/living (4)/living4 (6).png" data-fancybox="Living-project3" data-caption="<p>Living Project 3</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Living/living/living1 (1).png" data-fancybox="Living-project4" data-caption="<p>Living Project 4</p>">
+          <img src="./images/Living/living/living1 (1).png" alt="Living Project4 thumbnail">
+        </a>
+        <h3>Living - Project 4</h3>
+        <a href="./images/Living/living/living1 (2).png" data-fancybox="Living-project4" data-caption="<p>Living Project 4</p>"></a>
+        <a href="./images/Living/living/living1 (3).png" data-fancybox="Living-project4" data-caption="<p>Living Project 4</p>"></a>
+        <a href="./images/Living/living/living1 (4).png" data-fancybox="Living-project4" data-caption="<p>Living Project 4</p>"></a>
+        <a href="./images/Living/living/living1 (5).png" data-fancybox="Living-project4" data-caption="<p>Living Project 4</p>"></a>
+        <a href="./images/Living/living/living1 (6).png" data-fancybox="Living-project4" data-caption="<p>Living Project 4</p>"></a>
+        <a href="./images/Living/living/living1 (7).png" data-fancybox="Living-project4" data-caption="<p>Living Project 4</p>"></a>
+        <a href="./images/Living/living/living1 (8).png" data-fancybox="Living-project4" data-caption="<p>Living Project 4</p>"></a>
+      </div>
+    </div>
+
+
+
+    <!-- Office -->
+    <h3 class="category-title" id="cat-office">Office</h3>
+    <div class="projects-container">
+      <div class="project-card">
+        <a href="./images/Office/office (2)/office2 (1).png" data-fancybox="Office-project1" data-caption="<p>Office Project 1</p>">
+          <img src="./images/Office/office (2)/office2 (1).png" alt="Office Project1 thumbnail">
+        </a>
+        <h3>Office - Project 1</h3>
+        <a href="./images/office/office (2)/office2 (2).png" data-fancybox="Office-project1" data-caption="<p>Office Project 1</p>"></a>
+        <a href="./images/Office/office (2)/office2 (3).png" data-fancybox="Office-project1" data-caption="<p>Office Project 1</p>"></a>
+        <a href="./images/Office/office (2)/office2 (4).png" data-fancybox="Office-project1" data-caption="<p>Office Project 1</p>"></a>
+        <a href="./images/Office/office (2)/office2 (5).png" data-fancybox="Office-project1" data-caption="<p>Office Project 1</p>"></a>
+        <a href="./images/Office/office (2)/office2 (6).png" data-fancybox="Office-project1" data-caption="<p>Office Project 1</p>"></a>
+        <a href="./images/Office/office (2)/office2 (7).png" data-fancybox="Office-project1" data-caption="<p>Office Project 1</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Office/office/office1 (1).png" data-fancybox="Office-project2" data-caption="<p>Office Project 2</p>">
+          <img src="./images/Office/office/office1 (1).png" alt="Office Project2 thumbnail">
+        </a>
+        <h3>Office - Project 2</h3>
+        <a href="./images/Office/office/office1 (2).png" data-fancybox="Office-project2" data-caption="<p>Office Project 2</p>"></a>
+        <a href="./images/Office/office/office1 (3).png" data-fancybox="Office-project2" data-caption="<p>Office Project 2</p>"></a>
+        <a href="./images/Office/office/office1 (4).png" data-fancybox="Office-project2" data-caption="<p>Office Project 2</p>"></a>
+        <a href="./images/Office/office/office1 (5).png" data-fancybox="Office-project2" data-caption="<p>Office Project 2</p>"></a>
+      </div>
+    </div>
+
+    <!-- Reception -->
+    <h3 class="category-title" id="cat-reception">Reception</h3>
+    <div class="projects-container">
+      <div class="project-card">
+        <a href="./images/Reception/Project1/resipshin1 (1).png" data-fancybox="Reception-project1" data-caption="<p>Reception Project 1</p>">
+          <img src="./images/Reception/Project1/resipshin1 (1).png" alt="Reception Project1 thumbnail">
+        </a>
+        <h3>Reception - Project 1</h3>
+        <a href="./images/Reception/Project1/resipshin1 (2).png" data-fancybox="Reception-project1" data-caption="<p>Reception Project 1</p>"></a>
+        <a href="./images/Reception/Project1/resipshin1 (3).png" data-fancybox="Reception-project1" data-caption="<p>Reception Project 1</p>"></a>
+        <a href="./images/Reception/Project1/resipshin1 (4).png" data-fancybox="Reception-project1" data-caption="<p>Reception Project 1</p>"></a>
+        <a href="./images/Reception/Project1/resipshin1 (5).png" data-fancybox="Reception-project1" data-caption="<p>Reception Project 1</p>"></a>
+      </div>
+      <div class="project-card">
+        <a href="./images/Reception/Project2/resipshin10 (1).png" data-fancybox="Reception-project2" data-caption="<p>Reception Project 2</p>">
+          <img src="./images/Reception/Project2/resipshin10 (1).png" alt="Reception Project2 thumbnail">
+        </a>
+        <h3>Reception - Project 2</h3>
+        <a href="./images/Reception/Project2/resipshin10 (2).png" data-fancybox="Reception-project2" data-caption="<p>Reception Project 2</p>"></a>
+      </div>
+      <div class="project-card">
+        <a href="./images/Reception/Project3/resipshin2 (1).png" data-fancybox="Reception-project3" data-caption="<p>Reception Project 3</p>">
+          <img src="./images/Reception/Project3/resipshin2 (1).png" alt="Reception Project3 thumbnail">
+        </a>
+        <h3>Reception - Project 3</h3>
+        <a href="./images/Reception/Project3/resipshin2 (2).png" data-fancybox="Reception-project3" data-caption="<p>Reception Project 3</p>"></a>
+        <a href="./images/Reception/Project3/resipshin2 (3).png" data-fancybox="Reception-project3" data-caption="<p>Reception Project 3</p>"></a>
+        <a href="./images/Reception/Project3/resipshin2 (1).jpg" data-fancybox="Reception-project3" data-caption="<p>Reception Project 3</p>"></a>
+        <a href="./images/Reception/Project3/resipshin2 (2).jpg" data-fancybox="Reception-project3" data-caption="<p>Reception Project 3</p>"></a>
+      </div>
+      <!-- (Projects 4..10 retained as before) -->
+    </div>
+
+    <!-- Restaurant -->
+    <h3 class="category-title" id="cat-restaurant">Restaurant</h3>
+    <div class="projects-container">
+      <div class="project-card">
+        <a href="./images/Restaurant/Project1/RESTURANT1.png" data-fancybox="Restaurant-project1" data-caption="<p>Restaurant Project 1</p>">
+          <img src="./images/Restaurant/Project1/RESTURANT1.png" alt="Restaurant Project1 thumbnail">
+        </a>
+        <h3>Restaurant - Project 1</h3>
+      </div>
+      <div class="project-card">
+        <a href="./images/Restaurant/Project2/RESTURANT2 (1).png" data-fancybox="Restaurant-project2" data-caption="<p>Restaurant Project 2</p>">
+          <img src="./images/Restaurant/Project2/RESTURANT2 (1).png" alt="Restaurant Project2 thumbnail">
+        </a>
+        <h3>Restaurant - Project 2</h3>
+        <a href="./images/Restaurant/Project2/RESTURANT2 (2).png" data-fancybox="Restaurant-project2" data-caption="<p>Restaurant Project 2</p>"></a>
+        <a href="./images/Restaurant/Project2/RESTURANT2 (1).jpg" data-fancybox="Restaurant-project2" data-caption="<p>Restaurant Project 2</p>"></a>
+        <a href="./images/Restaurant/Project2/RESTURANT2 (2).jpg" data-fancybox="Restaurant-project2" data-caption="<p>Restaurant Project 2</p>"></a>
+      </div>
+    </div>
+
+
+    <!-- Store -->
+    <h3 class="category-title" id="cat-store">Store</h3>
+    <div class="projects-container">
+      <div class="project-card">
+        <a href="./images/Store/store/store1 (1).png" data-fancybox="Store-project1" data-caption="<p>Store Project 1</p>">
+          <img src="./images/Store/store/store1 (1).png" alt="Store Project1 thumbnail">
+        </a>
+        <h3>Store - Project 1</h3>
+        <a href="./images/Store/store/store1 (2).png" data-fancybox="Store-project1" data-caption="<p>Store Project 1</p>"></a>
+        <a href="./images/Store/store/store1 (3).png" data-fancybox="Store-project1" data-caption="<p>Store Project 1</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Store/store (2)/store2 (1).jpg" data-fancybox="Store-project2" data-caption="<p>Store Project 2</p>">
+          <img src="./images/Store/store (2)/store2 (1).jpg" alt="Store Project2 thumbnail">
+        </a>
+        <h3>Store - Project 2</h3>
+        <a href="./images/Store/store (2)/store2 (1).png" data-fancybox="Store-project2" data-caption="<p>Store Project 2</p>"></a>
+        <a href="./images/Store/store (2)/store2 (2).png" data-fancybox="Store-project2" data-caption="<p>Store Project 2</p>"></a>
+        <a href="./images/Store/store (2)/store2 (3).png" data-fancybox="Store-project2" data-caption="<p>Store Project 2</p>"></a>
+        <a href="./images/Store/store (4)/store4 (4).png" data-fancybox="Store-project2" data-caption="<p>Store Project 2</p>"></a>
+        <a href="./images/Store/store (2)/store2 (5).png" data-fancybox="Store-project2" data-caption="<p>Store Project 2</p>"></a>
+        <a href="./images/Store/store (4)/store4 (6).png" data-fancybox="Store-project2" data-caption="<p>Store Project 2</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Store/store (3)/store3 (1).png" data-fancybox="Store-project3" data-caption="<p>Store Project 3</p>">
+          <img src="./images/Store/store (3)/store3 (2).png" alt="Store Project3 thumbnail">
+        </a>
+        <h3>Store - Project 3</h3>
+        <a href="./images/Store/store (3)/store3 (2).png" data-fancybox="Store-project3" data-caption="<p>Store Project 3</p>"></a>
+        <a href="./images/Store/store (3)/store3 (3).png" data-fancybox="Store-project3" data-caption="<p>Store Project 3</p>"></a>
+        <a href="./images/Store/store (3)/store3 (4).png" data-fancybox="Store-project3" data-caption="<p>Store Project 3</p>"></a>
+        <a href="./images/Store/store (3)/store3 (5).png" data-fancybox="Store-project3" data-caption="<p>Store Project 3</p>"></a>
+        <a href="./images/Store/store (3)/store3 (6).png" data-fancybox="Store-project3" data-caption="<p>Store Project 3</p>"></a>
+        <a href="./images/Store/store (3)/store3 (7).png" data-fancybox="Store-project3" data-caption="<p>Store Project 3</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Store/store (4)/store4 (1).png" data-fancybox="Store-project4" data-caption="<p>Store Project 4</p>">
+          <img src="./images/Store/store (4)/store4 (1).png" alt="Store Project4 thumbnail">
+        </a>
+        <h3>Store - Project 4</h3>
+        <a href="./images/Store/store (4)/store4 (2).png" data-fancybox="Store-project4" data-caption="<p>Store Project 4</p>"></a>
+        <a href="./images/Store/store (4)/store4 (3).png" data-fancybox="Store-project4" data-caption="<p>Store Project 4</p>"></a>
+        <a href="./images/Store/store (4)/store4 (4).png" data-fancybox="Store-project4" data-caption="<p>Store Project 4</p>"></a>
+      </div>
+
+
+      <div class="project-card">
+        <a href="./images/Store/store (5)/store5 (1).png" data-fancybox="Store-project5" data-caption="<p>Store Project 5</p>">
+          <img src="./images/Store/store (5)/store5 (1).png" alt="Store Project5 thumbnail">
+        </a>
+        <h3>Store - Project 5</h3>
+        <a href="./images/Store/store (5)/store5 (2).png" data-fancybox="Store-project5" data-caption="<p>Store Project 5</p>"></a>
+        <a href="./images/Store/store (5)/store5 (3).png" data-fancybox="Store-project5" data-caption="<p>Store Project 5</p>"></a>
+        <a href="./images/Store/store (5)/store5 (4).png" data-fancybox="Store-project5" data-caption="<p>Store Project 5</p>"></a>
+        <a href="./images/Store/store (5)/store5 (5).png" data-fancybox="Store-project5" data-caption="<p>Store Project 5</p>"></a>
+        <a href="./images/Store/store (5)/store5 (6).png" data-fancybox="Store-project5" data-caption="<p>Store Project 5</p>"></a>
+      </div>
+
+
+ <div class="project-card">
+        <a href="./images/Store/store (6)/store6 (1).png" data-fancybox="Store-project6" data-caption="<p>Store Project 6</p>">
+          <img src="./images/Store/store (6)/store6 (1).png" alt="Store Project6 thumbnail">
+        </a>
+        <h3>Store - Project 6</h3>
+        <a href="./images/Store/store (6)/store6 (2).png" data-fancybox="Store-project6" data-caption="<p>Store Project 6</p>"></a>
+        <a href="./images/Store/store (6)/store6 (3).png" data-fancybox="Store-project6" data-caption="<p>Store Project 6</p>"></a>
+        <a href="./images/Store/store (6)/store6 (4).png" data-fancybox="Store-project6" data-caption="<p>Store Project 6</p>"></a>
+        <a href="./images/Store/store (6)/store6 (5).png" data-fancybox="Store-project6" data-caption="<p>Store Project 6</p>"></a>
+        <a href="./images/Store/store (6)/store6 (6).png" data-fancybox="Store-project6" data-caption="<p>Store Project 6</p>"></a>
+        <a href="./images/Store/store (6)/store6 (7).png" data-fancybox="Store-project6" data-caption="<p>Store Project 6</p>"></a>
+        <a href="./images/Store/store (6)/store6 (8).png" data-fancybox="Store-project6" data-caption="<p>Store Project 6</p>"></a>
+        <a href="./images/Store/store (6)/store6 (9).png" data-fancybox="Store-project6" data-caption="<p>Store Project 6</p>"></a>
+        <a href="./images/Store/store (6)/store6 (10).png" data-fancybox="Store-project6" data-caption="<p>Store Project 6</p>"></a>
+        <a href="./images/Store/store (6)/store6 (11).png" data-fancybox="Store-project6" data-caption="<p>Store Project 6</p>"></a>
+      </div>
+
+    </div>
+
+</section>
+
+  <script>
+    // Single-category visibility controller
+    document.addEventListener('DOMContentLoaded', function () {
+      const projectSection = document.getElementById('projects');
+      if (!projectSection) return;
+      const titles = Array.from(projectSection.querySelectorAll('.category-title'));
+      const nav = projectSection.querySelector('.category-index');
+      const links = nav ? Array.from(nav.querySelectorAll('a')) : [];
+
+      function showCategoryById(id, doScroll) {
+        titles.forEach((h3) => {
+          const group = h3.nextElementSibling; // .projects-container following the title
+          const isTarget = h3.id === id;
+          h3.classList.toggle('hidden-cat', !isTarget);
+          if (group) group.classList.toggle('hidden-cat', !isTarget);
+        });
+        links.forEach((a) => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+        if (doScroll) {
+          const target = document.getElementById(id);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      // Determine initial category (URL hash or first)
+      let initialId = titles.length ? titles[0].id : null;
+      const hash = window.location.hash.replace('#', '');
+      if (hash && titles.some((t) => t.id === hash)) {
+        initialId = hash;
+      }
+      if (initialId) showCategoryById(initialId, false);
+
+      // Handle clicks on the category index
+      links.forEach((a) => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = a.getAttribute('href').slice(1);
+          if (!id) return;
+          // Update URL hash without page jump
+          if (history && history.replaceState) {
+            history.replaceState(null, '', '#' + id);
+          } else {
+            window.location.hash = id;
+          }
+          showCategoryById(id, true);
+        });
+      });
+    });
+  </script>
+
+  <script>
+    // Performance: lazy-load all non-hero images and decode asynchronously
+    document.addEventListener('DOMContentLoaded', function () {
+      var imgs = document.querySelectorAll('img');
+      imgs.forEach(function (img) {
+        if (!img.closest('.hero')) {
+          if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+          if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+        }
+      });
+    });
+  </script>
+
+
+  
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Connect with Me</h2>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/19zRSG9JWc/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://api.whatsapp.com/send?phone=201280196652" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+      <a href="tel:+201011100684" class="phone"><i class="fas fa-phone-alt"></i></a>
+      <a href="https://www.behance.net/foudmahmoud8" target="_blank" class="behance" aria-label="Behance Portfolio"><i class="fab fa-behance"></i></a>
+    </div>
+</section>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Â© 2025 Mahmoud FOUD. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Include Fancybox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <script>
+    // Toggle Mobile Menu
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
+
+
+
