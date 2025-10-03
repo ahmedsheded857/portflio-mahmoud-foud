@@ -71,9 +71,22 @@
     /* Hamburger Menu */
     .menu-icon {
       display: none;
-      font-size: 24px;
+      width: 28px;
+      height: 22px;
       cursor: pointer;
       color: #fff;
+      background: none;
+      border: 0;
+      padding: 0;
+      position: relative;
+    }
+    .menu-icon .bar {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+      margin: 4px 0;
     }
     
     /* Hero Section */
@@ -277,7 +290,11 @@
       <a href="#">Mahmoud FOUD</a>
     </div>
     <nav>
-      <div class="menu-icon" onclick="toggleMenu()">â˜°</div>
+      <button class="menu-icon" type="button" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false" onclick="toggleMenu(this)">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
       <ul id="nav-links">
         <li><a href="#">Home</a></li>
         <li><a href="#projects">Portfolio</a></li>
@@ -910,9 +927,13 @@
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
   <script>
     // Toggle Mobile Menu
-    function toggleMenu() {
+    function toggleMenu(el) {
       const navLinks = document.getElementById('nav-links');
       navLinks.classList.toggle('active');
+      if (el && el.setAttribute) {
+        const expanded = el.getAttribute('aria-expanded') === 'true';
+        el.setAttribute('aria-expanded', (!expanded).toString());
+      }
     }
   </script>
 </body>
