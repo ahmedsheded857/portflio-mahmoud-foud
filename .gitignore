@@ -10,3 +10,11 @@ Thumbs.db
 
 # Dependencies
 /node_modules/
+
+# Allow all image files
+!images/
+!images/**/*
+!*.jpg
+!*.jpeg
+!*.png
+!*.gif
